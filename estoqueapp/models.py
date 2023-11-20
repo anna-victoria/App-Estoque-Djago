@@ -18,4 +18,4 @@ class Estoque(models.Model):
     exportar_para_CSV = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.nome_item
+        return self.nome_item + " - Quant: " + str(self.quantidade)
