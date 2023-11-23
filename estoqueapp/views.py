@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Estoque
 from .forms import EstoqueFormCreate
+
 
 # Create your views here.
 def home(request):
@@ -20,11 +21,13 @@ def listar_produtos(request):
     return render(request, "listar_produtos.html",context)
 
 def adicionar_produtos(request):
-	form = EstoqueFormCreate(request.POST or None)
-	if form.is_valid():
-		form.save()
-	context = {
-		"form": form,
-		"title": "Adicionar um produto",
-	}
-	return render(request, "adicionar_produtos.html", context)
+    form = EstoqueFormCreate(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/listar_produtos')
+    
+    context = {
+        "form": form,
+        "title": "Adicionar um produto",
+    }
+    return render(request, "adicionar_produtos.html", context)
