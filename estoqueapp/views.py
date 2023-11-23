@@ -17,3 +17,13 @@ def listar_produtos(request):
     "queryset": queryset,
     }
     return render(request, "listar_produtos.html",context)
+
+def adicionar_produtos(request):
+	form = EstiqueCreateForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+	context = {
+		"form": form,
+		"title": "Adicionar um produto",
+	}
+	return render(request, "adicionar_produtos.html", context)
