@@ -20,5 +20,6 @@ from estoqueapp import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('listar_produtos/', views.listar_produtos, name='listar_produtos'),
     path('admin/', admin.site.urls),
 ]
