@@ -9,7 +9,8 @@ class EstoqueAdminCreate(admin.ModelAdmin):
     form = EstoqueFormCreate
     
     # filtrar_lista = ['categoria']
-    # campo_pesquisa = ['categoria', 'nome_item', 'quantidade', 'quantidade_emitida', 'emitido_por', 'emitido_para', 'numero_telefone']
+    campo_pesquisa = ['categoria', 'nome_item', 'quantidade', 'quantidade_emitida', 'emitido_por', 'emitido_para', 'numero_telefone']
+    search_fields = campo_pesquisa
     # Additional customization options can be added here
 
 admin.site.register(Estoque, EstoqueAdminCreate)
