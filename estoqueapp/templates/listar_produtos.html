@@ -6,6 +6,11 @@
     <title>Listar produtos</title>
 </head>
 <body>
+    {{title}}<br>
+	{% for i in queryset %}
+	{{i.nome_item}}, Quantidade disponivel: {{i.quantidade}}<br>
+
+	{% endfor %}
     
 </body>
 </html>
