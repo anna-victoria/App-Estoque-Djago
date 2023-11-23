@@ -7,3 +7,10 @@ def home(request):
 	"title": title,
 	}
 	return render(request, "home.html",context)
+
+def listar_produtos(request):
+    title = 'Lista de Produtos'
+    context = {
+    "title": title,
+    }
+    return render(request, "listar_produtos.html",context)
