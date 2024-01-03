@@ -3,9 +3,9 @@ from django.db import models
 # Create your models here.
 
 class Estoque(models.Model):
-    categoria = models.CharField(max_length=50, blank=True, null=True)
-    nome_item = models.CharField(max_length=50, blank=True, null=True)
-    quantidade = models.IntegerField(default='0', blank=True, null=True)
+    categoria = models.CharField(max_length=50, blank=False, null=True)
+    nome_item = models.CharField(max_length=50, blank=False, null=True)
+    quantidade = models.IntegerField(default='0', blank=False, null=True)
     quantidade_recebida = models.IntegerField(default='0', blank=True, null=True)
     recebido_por = models.CharField(max_length=50, blank=True, null=True)
     quantidade_emitida = models.IntegerField(default='0', blank=True, null=True)
