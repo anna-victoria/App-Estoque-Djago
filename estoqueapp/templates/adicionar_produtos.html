@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -190,7 +191,7 @@
         <h1>Adicionar Produtos</h1>
         <!-- Add your form or content here -->
         <form method='POST' action=''>{% csrf_token %}
-            {{form}}
+            {{ form|crispy }}
             <input type="submit" value='Save'/>
         </form>
     </div>
