@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Estoque
 from .forms import EstoqueFormCreate
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required
 def home(request):
 	title = 'Página Inicial, bem vindo(a)!'
 	context = {
@@ -31,3 +34,14 @@ def adicionar_produtos(request):
         "title": "Adicionar um produto",
     }
     return render(request, "adicionar_produtos.html", context)
+
+def authView(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/listar_produtos')
+        else:
+            form = UserCreationForm()
+    form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
