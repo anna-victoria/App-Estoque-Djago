@@ -1,5 +1,17 @@
-<form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">Submit</button>
-</form>
+{% extends "base.html"%}
+{% block content %}
+{% load static %}
+
+<div class= "shadow-wrap">
+    <div class="form-wrap">
+        <h3> Realize o seu login </h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button type="submit">Entrar</button>
+        </form>
+    <a class="signup-link" href="{% url "estoqueapp:authView" %}">Cadastre-se</a>
+    </div>
+</div>
+
+{% endblock %}
