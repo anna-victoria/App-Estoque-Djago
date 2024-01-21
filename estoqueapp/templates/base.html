@@ -1,0 +1,29 @@
+<!-- FILEPATH: /d:/Development/Codespace/djangoproject/djangoproject/estoqueapp/templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+    
+    {% load static %}
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Controle de Estoque</h1>
+    </header>
+    
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <p>© 2022 My Django App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
