@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Estoque
-from .forms import EstoqueFormCreate
+from .forms import EstoqueFormCreate, EstoqueFormSearch
 
 
 # Create your views here.
@@ -13,12 +13,22 @@ def home(request):
 
 def listar_produtos(request):
     title = 'Lista de Produtos'
+    form = EstoqueFormSearch(request.POST or None)
     queryset = Estoque.objects.all()
     context = {
-    "title": title,
-    "queryset": queryset,
+        "title": title,
+        "queryset": queryset,
+        "form": form,
     }
-    return render(request, "listar_produtos.html",context)
+    if request.method == 'POST':
+        queryset = Estoque.objects.filter(categoria__icontains=form['categoria'].value(), nome_item__icontains=form['nome_item'].value())
+        context = {
+            "title": title,
+            "queryset": queryset,
+            "form": form,
+        } 
+    return render(request, "listar_produtos.html", context)
+
 
 def adicionar_produtos(request):
     form = EstoqueFormCreate(request.POST or None)

@@ -1,0 +1,33 @@
+body {
+    background: #c9ccd6;
+}
+
+/*Align the title to the center of the page*/
+.table {
+    font-size: 18px;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    background-color: #B8CAE4;
+}
+
+/*Make alternating colors for the table rows*/
+.table tr:nth-child(odd) {
+    background: #B8CAE4
+}
+
+.table tr:nth-child(even) {
+    background: #dae5f4
+}
+
+th {
+    color: white;
+}
+
+.display_table {
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+}
