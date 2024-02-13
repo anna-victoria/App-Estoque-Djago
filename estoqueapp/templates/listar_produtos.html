@@ -191,10 +191,24 @@
     <div style='margin-left: 40px; margin-right: 40px; margin-top: 70px;'>
         <h5>{{title}}</h5>
         <br>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Categoria</th>
+              <th>Nome</th>
+              <th>Quantidade</th>
+            </tr>
+          </thead>
         {% for i in queryset %}
-        {{i.nome_item}}, Quantidade disponivel: {{i.quantidade}}<br>
-
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{i.categoria}}</td>
+              <td>{{i.nome_item}}</td>
+              <td>{{i.quantidade}}</td>
+            </tr>
         {% endfor %}
+      </table>
     </div>
     
 </main>
